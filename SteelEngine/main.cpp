@@ -1,25 +1,19 @@
 #include <iostream>;
 #include "GLFW/glfw3.h"
 #include "src/Graphics/Window.h"
+#include "src/Platform/Application.h"
+
 
 using namespace Steel::Graphics;
 
 
 int main()
 {
-	if (glfwInit() == GLFW_TRUE)
-		std::cout << "GLFW Initialized" << std::endl;
-	else
-		std::cout << "Failed to init GLFW";
+	Steel::Platform::Application application;
 
-	WindowProps windowProps {"SteelEngine", 920, 760 };
+	application.Run();
 
-	Window w(windowProps);
-
-	while (true)
-	{
-		w.Update();
-	}
+	delete &application;
 
 	return 0;
 }

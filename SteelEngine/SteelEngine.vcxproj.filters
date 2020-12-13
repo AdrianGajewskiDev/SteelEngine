@@ -10,9 +10,12 @@
     <ClInclude Include="libs\GLFW\glfw3native.h" />
     <ClInclude Include="src\Graphics\Window.h" />
     <ClInclude Include="src\Graphics\WindowProps.h" />
+    <ClInclude Include="src\Log.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\Graphics\Window.cpp" />
+    <ClCompile Include="src\Platform\Application.h" />
+    <ClCompile Include="src\Platform\Application.cpp" />
   </ItemGroup>
 </Project>

@@ -9,6 +9,16 @@ namespace Steel {
 			std::string Title;
 			int Width;
 			int Height;
+
+			WindowProps() = default;
+
+			WindowProps(const std::string title, int width, int height)
+			{
+				Title = title;
+				Width = width;
+				Height = height;
+			}
+
 		};
 
 	}

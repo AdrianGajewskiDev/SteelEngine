@@ -1,7 +1,6 @@
 #pragma once
 #include <GLFW/glfw3.h>
 #include <string>
-#include "WindowProps.h"
 
 namespace Steel {
 	namespace Graphics {
@@ -9,16 +8,21 @@ namespace Steel {
 		class Window {
 
 		public:
-			Window(WindowProps& windowProps);
+			Window(const std::string& title = "SteelEngine", int width = 960, int height = 720);
 			~Window();
 
 			void Update() const;
-
-			inline int GetWidth() { return m_WindowData.Width; }
-			inline int GetHeight() { return m_WindowData.Height; }
+			void Close();
+			GLFWwindow* GetWindow();
+			inline int GetWidth() { return m_Width; }
+			inline int GetHeight() { return m_Height; }
 		private:
+			void CreateWindow();
 			GLFWwindow* m_Window;
-			WindowProps m_WindowData;
+
+			int m_Width;
+			int m_Height;
+			std::string m_Title;
 		};
 
 	}
