@@ -19,20 +19,8 @@ namespace Steel {
 
 		void Window::Update() const
 		{
-			glClearColor(1, 1, 1, 1);
-			glClear(GL_COLOR_BUFFER_BIT);
-
-			/// <summary>
-			/// TODO: Remove
-			/// </summary>
-			glBegin(GL_TRIANGLES);
-			glColor3f(0, 0, 0);
-			glVertex2f(0, 0.5f);
-			glVertex2f(-0.5f, -0.5f);
-			glVertex2f(0.5f, -0.5f);
-			glEnd();
-
-
+			glfwPollEvents();
+			glfwSwapBuffers(m_Window);
 		}
 
 		void Window::Close()
@@ -51,10 +39,18 @@ namespace Steel {
 		void Window::CreateWindow()
 		{
 			m_Window = glfwCreateWindow(m_Width, m_Height, m_Title.c_str(), NULL, NULL);
-			
+
+			glfwSetWindowCloseCallback(m_Window, [](GLFWwindow* window)
+			{
+					glfwDestroyWindow(window);
+					glfwTerminate();
+			});
 			glfwMakeContextCurrent(m_Window);
 
-
+			glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+			glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+			glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+		
 		}
 	}
 

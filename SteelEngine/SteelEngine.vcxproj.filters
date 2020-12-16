@@ -18,4 +18,8 @@
     <ClCompile Include="src\Platform\Application.h" />
     <ClCompile Include="src\Platform\Application.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Library Include="libs\GLEW\lib\glew32.lib" />
+    <Library Include="libs\GLEW\lib\glew32s.lib" />
+  </ItemGroup>
 </Project>
