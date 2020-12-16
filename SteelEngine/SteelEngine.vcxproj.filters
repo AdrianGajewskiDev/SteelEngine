@@ -11,12 +11,14 @@
     <ClInclude Include="src\Graphics\Window.h" />
     <ClInclude Include="src\Graphics\WindowProps.h" />
     <ClInclude Include="src\Log.h" />
+    <ClInclude Include="src\Shaders\Shader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\Graphics\Window.cpp" />
     <ClCompile Include="src\Platform\Application.h" />
     <ClCompile Include="src\Platform\Application.cpp" />
+    <ClCompile Include="src\Shaders\Shader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="libs\GLEW\lib\glew32.lib" />

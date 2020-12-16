@@ -15,6 +15,7 @@
     <ClCompile Include="src\Graphics\Window.cpp" />
     <ClCompile Include="src\Platform\Application.cpp" />
     <ClCompile Include="src\Platform\Application.h" />
+    <ClCompile Include="src\Shaders\Shader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="libs\GLFW\glfw3.h" />
@@ -22,6 +23,7 @@
     <ClInclude Include="src\Graphics\Window.h" />
     <ClInclude Include="src\Graphics\WindowProps.h" />
     <ClInclude Include="src\Log.h" />
+    <ClInclude Include="src\Shaders\Shader.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="libs\GLEW\lib\glew32.lib" />
