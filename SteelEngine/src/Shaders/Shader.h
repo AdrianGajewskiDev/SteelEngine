@@ -12,7 +12,7 @@ namespace Steel
 		{
 			
 		public:
-			Shader(const std::string& vertexShaderSource, const std::string& fragmentaderSource, unsigned int& program);
+			Shader(const std::string& vertexShaderSource, const std::string& fragmentaderSource, unsigned int* program);
 			void Create();
 		private:
 			unsigned int Compile(unsigned int type);

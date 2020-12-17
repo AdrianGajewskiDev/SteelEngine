@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\File\FileLoader.cpp" />
     <ClCompile Include="src\Graphics\Window.cpp" />
     <ClCompile Include="src\Platform\Application.cpp" />
     <ClCompile Include="src\Platform\Application.h" />
@@ -20,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="libs\GLFW\glfw3.h" />
     <ClInclude Include="libs\GLFW\glfw3native.h" />
+    <ClInclude Include="src\File\FileLoader.h" />
     <ClInclude Include="src\Graphics\Window.h" />
     <ClInclude Include="src\Graphics\WindowProps.h" />
     <ClInclude Include="src\Log.h" />
@@ -28,6 +30,10 @@
   <ItemGroup>
     <Library Include="libs\GLEW\lib\glew32.lib" />
     <Library Include="libs\GLEW\lib\glew32s.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\Shaders\shaders\FragmentShader.glsl" />
+    <None Include="src\Shaders\shaders\VertexShader.glsl" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -5,11 +5,11 @@ namespace Steel
 {
 	namespace Shaders
 	{
-		Shader::Shader(const std::string& vertexShaderSource, const std::string& fragmentShaderSource, unsigned int& program)
+		Shader::Shader(const std::string& vertexShaderSource, const std::string& fragmentShaderSource, unsigned int* program)
 		{
 			m_VertexShaderSource = vertexShaderSource;
 			m_FragmentShaderSource = fragmentShaderSource;
-			m_Program = program;
+			m_Program = *program;
 		}
 
 		void Shader::Create()

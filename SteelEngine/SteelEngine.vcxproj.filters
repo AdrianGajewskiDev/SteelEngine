@@ -12,6 +12,7 @@
     <ClInclude Include="src\Graphics\WindowProps.h" />
     <ClInclude Include="src\Log.h" />
     <ClInclude Include="src\Shaders\Shader.h" />
+    <ClInclude Include="src\File\FileLoader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -19,9 +20,14 @@
     <ClCompile Include="src\Platform\Application.h" />
     <ClCompile Include="src\Platform\Application.cpp" />
     <ClCompile Include="src\Shaders\Shader.cpp" />
+    <ClCompile Include="src\File\FileLoader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="libs\GLEW\lib\glew32.lib" />
     <Library Include="libs\GLEW\lib\glew32s.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\Shaders\shaders\VertexShader.glsl" />
+    <None Include="src\Shaders\shaders\FragmentShader.glsl" />
   </ItemGroup>
 </Project>

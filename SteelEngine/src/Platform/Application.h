@@ -2,7 +2,7 @@
 
 #include "GLEW/GL/glew.h" 
 #include "../Graphics/Window.h"
-#include "../Shaders/Shader.h"
+
 
 namespace Steel
 {
