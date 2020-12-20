@@ -13,6 +13,13 @@
     <ClInclude Include="src\Log.h" />
     <ClInclude Include="src\Shaders\Shader.h" />
     <ClInclude Include="src\File\FileLoader.h" />
+    <ClInclude Include="src\GUI\EngineUI.h" />
+    <ClInclude Include="libs\GLEW\GL\eglew.h" />
+    <ClInclude Include="libs\GLEW\GL\glew.h" />
+    <ClInclude Include="libs\GLEW\GL\glxew.h" />
+    <ClInclude Include="libs\GLEW\GL\wglew.h" />
+    <ClInclude Include="src\Core\Buffer.h" />
+    <ClInclude Include="src\Core\IndexBuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -21,13 +28,21 @@
     <ClCompile Include="src\Platform\Application.cpp" />
     <ClCompile Include="src\Shaders\Shader.cpp" />
     <ClCompile Include="src\File\FileLoader.cpp" />
+    <ClCompile Include="src\GUI\EngineUI.cpp" />
+    <ClCompile Include="src\Log.cpp" />
+    <ClCompile Include="src\Core\VertexBuffer.h" />
+    <ClCompile Include="src\Core\VertexBuffer.cpp" />
+    <ClCompile Include="src\Core\IndexBuffer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="libs\GLEW\lib\glew32.lib" />
+    <Library Include="libs\GLFW\lib\glfw3.lib" />
+    <Library Include="libs\GLFW\lib\glfw3dll.lib" />
     <Library Include="libs\GLEW\lib\glew32s.lib" />
+    <Library Include="libs\GLEW\lib\glew32.lib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\Shaders\shaders\VertexShader.glsl" />
     <None Include="src\Shaders\shaders\FragmentShader.glsl" />
+    <None Include="libs\GLEW\lib\glew32.dll" />
   </ItemGroup>
 </Project>

@@ -27,6 +27,20 @@ namespace Steel
 			glDeleteShader(fragmentShader);
 		}
 
+		void Shader::SetUniform4f(const char* name, float v1, float v2, float v3, float v4)
+		{
+			int location = glGetUniformLocation(m_Program, name);
+
+			glUniform4f(location, v1, v2, v3, v4);
+		}
+
+		void Shader::SetUniform3f(const char* name, float v1, float v2, float v3)
+		{
+			int location = glGetUniformLocation(m_Program, name);
+
+			glUniform3f(location, v1, v2, v3);
+		}
+
 		unsigned int Shader::Compile(unsigned int type)
 		{
 			unsigned int shaderID = glCreateShader(type);

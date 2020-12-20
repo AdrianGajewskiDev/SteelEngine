@@ -14,6 +14,8 @@ namespace Steel
 		public:
 			Shader(const std::string& vertexShaderSource, const std::string& fragmentaderSource, unsigned int* program);
 			void Create();
+			void SetUniform4f(const char* name, float v1, float v2, float v3, float v4);
+			void SetUniform3f(const char* name, float v1, float v2, float v3);
 		private:
 			unsigned int Compile(unsigned int type);
 		private:

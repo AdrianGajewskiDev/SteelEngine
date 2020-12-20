@@ -1,5 +1,4 @@
 #pragma once
-
 #include <iostream>
 #include <Windows.h>
 
@@ -12,10 +11,5 @@
 /// <summary>
 /// Very, very base logging functionality
 /// </summary>
-void LOG(std::string message, int logLevel)
-{
-	HANDLE color = GetStdHandle(STD_OUTPUT_HANDLE); 
-	SetConsoleTextAttribute(color, logLevel);
+void LOG(std::string message, int logLevel, bool clamp = false);
 
-	std::cout << message << std::endl;
-}

@@ -2,6 +2,7 @@
 
 #include "GLEW/GL/glew.h" 
 #include "../Graphics/Window.h"
+#include "../GUI/EngineUI.h"
 
 
 namespace Steel
@@ -25,6 +26,7 @@ namespace Steel
 		private:
 			Graphics::Window* m_Window;
 			bool m_Running;
+			GUI::EngineUI gui;
 
 		};
 	}

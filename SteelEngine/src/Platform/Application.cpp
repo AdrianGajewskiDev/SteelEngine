@@ -1,13 +1,11 @@
-#include "Application.h";
+#include "Application.h"
 #include "../Graphics/Window.h"
 #include "../Shaders/Shader.h"
 #include "../Log.h"
 #include "../File/FileLoader.h"
-#include <random>
-#include <time.h>
+#include "../Core/VertexBuffer.h"
+#include "../Core/IndexBuffer.h"
 
-
-#define FRAME_TIME 16.6f
 
 namespace Steel
 {
@@ -15,14 +13,14 @@ namespace Steel
 	namespace Platform
 	{
 		Application::Application()
-			:m_Running(true)
+			: m_Running(true),
+			gui()
 		{
 			Init();
 			m_Window = new Graphics::Window();
 			glewExperimental = GL_TRUE;
 			glewInit();
 			OnStartup();
-
 		}
 
 		Application::Application(Graphics::Window& window)
@@ -39,6 +37,9 @@ namespace Steel
 
 		void Application::Run()
 		{
+			/// <summary>
+			/// TODO: add fps limit
+			/// </summary>
 			while (m_Running)
 			{
 				OnUpdate();
@@ -61,28 +62,21 @@ namespace Steel
 
 		void Application::OnUpdate() const
 		{
-			float colors[3] = { 0.0f, 0.0f, 0.0f };
-
-			srand((unsigned)time(NULL));
-
-			for (int i = 0; i < 3; i++)
-			{
-				colors[i] = (float)rand() / RAND_MAX;
-			}
-
-			int program;
-			glGetIntegerv(GL_CURRENT_PROGRAM, &program);
-
-			int location = glGetUniformLocation(program, "m_Color");
-			glUniform3f(location, colors[0], colors[1], colors[2]);
+			gui.UpdateUI();
 		}
 
+
+		unsigned int indices[6] =
+		{
+			0,1,2,
+			1,3,2
+		};
 
 		void Application::OnRender() const
 		{
 			glClearColor(59.0f / 255.0f, 59.0f / 255.0f, 59.0f / 255.0f, 1.0f);
 			glClear(GL_COLOR_BUFFER_BIT);
-			glDrawArrays(GL_QUAD_STRIP, 0, 4);
+			glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
 			m_Window->Update();
 		}
@@ -91,22 +85,22 @@ namespace Steel
 		{
 			LOG("StartingUp", LOG_INFORMATION);
 
+			gui.Init();
+
 			float positions[8] =
 			{
-				0.5f, 0.5f,		
-				-0.5f,0.5f,		
-				0.5f, -0.5f,	
-				-0.5f, -0.5f	
+				0.5f, 0.5f,	 //0	
+				-0.5f,0.5f,	 //1	
+				0.5f, -0.5f, //2	
+				-0.5f, -0.5f //3	
 			};
 
-			unsigned int vao;
-			glGenBuffers(1, &vao);
-			glBindBuffer(GL_ARRAY_BUFFER, vao);
-			glBufferData(GL_ARRAY_BUFFER, sizeof(positions), positions, GL_STATIC_DRAW);
 
-			glVertexAttribPointer(0, 2, GL_FLOAT, false, 8, 0);
+			Core::VertexBuffer vbo(GL_STATIC_DRAW);
+			vbo.Bind(sizeof(positions), positions);
+			vbo.AddVertexAttrib(0, 2, GL_FLOAT, false, 8, 0);
 
-			glEnableVertexAttribArray(0);
+			Core::IndexBuffer ibo(GL_STATIC_DRAW);
 
 			std::string vertexShader = FileLoader::READFROMTXT("src/Shaders/shaders/VertexShader.glsl");
 			std::string fragmentShader = FileLoader::READFROMTXT("src/Shaders/shaders/FragmentShader.glsl");
@@ -115,8 +109,9 @@ namespace Steel
 
 			Shaders::Shader shader(vertexShader, fragmentShader, &program);
 			shader.Create();
-
 			glUseProgram(program);
+
+			shader.SetUniform3f("m_Color", 0.0f, 0.4f, 0.0f);
 		}
 	}
 }
